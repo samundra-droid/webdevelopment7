@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html> <head>
+      <style>
+        table {
+          text-align:center;
+          margin-left: auto;
+          margin-right: auto;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                       'Lucida Grande', 'Lucida Sans Unicode',
+                        Geneva, Verdana, sans-serif;
+        }
+        input, button {
+          padding: 12px 20px;           margin: 8px 0;
+          display: inline-block;        border: 1px solid #ccc;
+          border-radius: 4px;           box-sizing: border-box;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                       'Lucida Grande', 'Lucida Sans Unicode',
+                        Geneva, Verdana, sans-serif;
+          align: center;
+         }
+      </style>
+   </head>
+   <body>
+      <div align="center">
+      <h1>Grade Calculator</h1>  
+       
+      <button onclick="addActivity()" id="addActivityBtn">
+        Add Activity</button>
+
+      <label for="activity">Activity</label>
+      <input type="text" id="activityname" size="3">
+       
+      <label for="Weight">Weight</label>
+      <input type="text" id="activityWeight" size="3"><br>    
+
+      <button onclick="addGrade()" id="addGradebtn">
+        Add Grade</button>
+
+      <label for="gradevalue">Grade</label>
+      <input type="text" id="grade" size="3"">
+
+      <label for="activityNumber">Activitycount</label>
+      <input type="text" id="activityNo" size="3"><br>        
+   
+      <button onclick="deleteActivity()" id="deleteActivitybtn">
+      Delete Activity </button>    
+
+      <table border="2" id="theTable" style="width:70%">
+          <tr>
+              <th>No</th>
+              <th>Activity</th> <th>Weight</th>
+              <th>Grade</th> </tr>  
+          <tr>
+              <td>1</td> <td>Lab1</td>
+              <td>10</td> <td></td>
+          </tr>
+          <tr>
+              <td>2</td> <td>Lab2</td>
+              <td>20</td> <td></td>
+          </tr>
+          <tr>
+              <td>3</td> <td>Test1</td>
+              <td>30</td> <td></td>
+          </tr>
+          <tr>
+              <td>4</td> <td>Test2</td>
+              <td>40</td> <td></td>
+          </tr>
+      </table>
+     <p id="ERR" style="color:rgb(0, 64, 255);" >Error Message: </p>
+<script>
+  noActivity = 4;
+  totalWeight = 100;
+  ERR = document.getElementById("ERR");
+ 
+  function addActivity() {
+
+
+    var x=document.getElementById("activityname").value;
+    var y=document.getElementById("activityweight").value;
+    
+
+    Activitycount++;
+    var table = document.getElementById("theTable");
+
+  var row = table.insertRow(-1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  cell1.innerHTML = activitycount;
+  cell2.innerHTML = x;
+  cell3.innerHTML = y;
+  cell4.innerHTML = "";
+  }
+ 
+ 
+function deleteActivity() {
+    window.alert("deleteActivitybtn");
+    var tbl= document.getElementById("thetable");
+var counter=tbl.rows.length;
+tbl.deleteRow(0);
+if(counter===1){
+  document.getElementById("message").innerHTML = " Error Message: No more activities to remove.";
+} 
+ 
+}
+
+  }
+ 
+function addGrade() {
+
+  var grade=document.getElementById("grade").value;
+  var acno=document.getElementById("activityNumber").value;
+
+  document.getElementById("theTable").rows[acno].cells[3].innerHTML=grade;
+
+
+
+    window.alert("addGrade");
+  }  
+</script>
+  </body> </html>
